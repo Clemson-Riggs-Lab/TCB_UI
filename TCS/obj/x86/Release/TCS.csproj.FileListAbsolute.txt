@@ -11,3 +11,18 @@ C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Rele
 C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Release\TCS.application
 C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Release\TCS.exe
 C:\Users\admin\Desktop\Tactile Cues Sim (Jawad)\TCS (7-22-2019)\TCS\obj\x86\Release\TCS.pdb
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TDK\TCS.exe.config
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TDK\TCS.exe.manifest
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TDK\TCS.application
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TDK\TCS.exe
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TDK\TCS.pdb
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.csprojAssemblyReference.cache
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.TCSForm.resources
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.Form2.resources
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.Properties.Resources.resources
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.csproj.GenerateResource.cache
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.exe.manifest
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.application
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.exe
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.pdb
+C:\Users\szell\move on\2020Spring\Tactile\TCB_UI\TCS\obj\x86\Release\TCS.Form3.resources

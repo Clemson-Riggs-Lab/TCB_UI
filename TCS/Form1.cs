@@ -613,6 +613,13 @@ namespace TCS
         {
 
         }
+
+        private void btnIntenseMatch_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            var Form2 = new Form2();
+            Form2.Show();
+        }
     }
 
 }

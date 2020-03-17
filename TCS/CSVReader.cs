@@ -56,6 +56,10 @@ public class CSVReader
                 row.presentTime= startTime.Add(TimeSpan.Parse(grid[i][15]));
             }
             rowList.Add(row);
+            int.TryParse(grid[i][16], out row.TactorNum);
+            int.TryParse(grid[i][17], out row.ISILength);
+            row.TransientType = grid[i][18];
+            row.TransientTiming = grid[i][19];
         }
         Loaded = true;
         return rowList;

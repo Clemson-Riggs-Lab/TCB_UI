@@ -452,49 +452,7 @@ namespace TCS
             csvWriter.AddEvent(startTime.ToString("HH:mm:ss:ffff"), endTime.ToString("HH:mm:ss:ffff"), currentCue);
         }
 
-        //private void AdvancedAction2Button_Click(object sender, EventArgs e)
-        //{
-        //    WriteMessageToGUIConsole("Advanced Action 2\n");
-        //    //this entire set of commands ramps the gains of tactors 1 and 2 down, and ramps the frequency
-        //    //of tactors 9 and 10 down, all while pulsing tactor 1,2,9,10
-        //    int timeFactor = 10;
-        //    //Ramps gain of tactor 1 from 255 to 10 for a duration of a 1000 milliseconds immediatly.
-        //    CheckTDKErrors(Tdk.TdkInterface.RampGain(ConnectedDeviceID, 1, 255, 10, 100 * timeFactor, Tdk.TdkDefines.RampLinear, 0));
-        //    //Ramps gain of tactor 2 from 255 to 10 for a duration of a 1000 milliseconds immediatly.
-        //    CheckTDKErrors(Tdk.TdkInterface.RampGain(ConnectedDeviceID, 2, 255, 10, 100 * timeFactor, Tdk.TdkDefines.RampLinear, 0));
-        //    //Ramps frequency of tactor 9 from 3500 to 300 for a duration of a 1000 milliseconds immediatly.
-        //    CheckTDKErrors(Tdk.TdkInterface.RampFreq(ConnectedDeviceID, 9, 3500, 300, 100 * timeFactor, Tdk.TdkDefines.RampLinear, 0));
-        //    //Ramps frequency of tactor 10 from 3500 to 300 for a duration of a 1000 milliseconds immediatly.
-        //    CheckTDKErrors(Tdk.TdkInterface.RampFreq(ConnectedDeviceID, 10, 3500, 300, 100 * timeFactor, Tdk.TdkDefines.RampLinear, 0));
-        //    //pulses tactor 1 for a duration of 1000 milliseconds immediatly
-        //    CheckTDKErrors(Tdk.TdkInterface.Pulse(ConnectedDeviceID, 1, 100 * timeFactor, 0));
-        //    //pulses tactor 2 for a duration of 1000 milliseconds immediatly
-        //    CheckTDKErrors(Tdk.TdkInterface.Pulse(ConnectedDeviceID, 2, 100 * timeFactor, 0));
-        //    //pulses tactor 9 for a duration of 1000 milliseconds immediatly
-        //    CheckTDKErrors(Tdk.TdkInterface.Pulse(ConnectedDeviceID, 9, 100 * timeFactor, 0));
-        //    //pulses tactor 10 for a duration of 1000 milliseconds immediatly
-        //    CheckTDKErrors(Tdk.TdkInterface.Pulse(ConnectedDeviceID, 10, 100 * timeFactor, 0));
-        //}
-        //private void StoreTActionButton_Click(object sender, EventArgs e)
-        //{
-        //    //sets the device to store taction state for slot 1.
-        //    WriteMessageToGUIConsole("Store TAction\n");
-        //    CheckTDKErrors(Tdk.TdkInterface.BeginStoreTAction(ConnectedDeviceID,1));
-        //    //stores the following set of commands as a TAction on the device.
-        //    CheckTDKErrors(Tdk.TdkInterface.ChangeGain(ConnectedDeviceID, 0, 255, 0));
-        //    CheckTDKErrors(Tdk.TdkInterface.ChangeFreq(ConnectedDeviceID, 0, 2500, 0));
-        //    CheckTDKErrors(Tdk.TdkInterface.Pulse(ConnectedDeviceID, 1, 250, 0));
-        //    //stops recording
-        //    CheckTDKErrors(Tdk.TdkInterface.FinishStoreTAction(ConnectedDeviceID));
-        //}
-
-        //private void PlayStoredTActionButton_Click(object sender, EventArgs e)
-        //{
-        //    //plays the stored TAction on slot 1
-        //    WriteMessageToGUIConsole("Playing Stored TAction\n");
-        //    CheckTDKErrors(Tdk.TdkInterface.PlayStoredTAction(ConnectedDeviceID,0,1));
-        //}
-
+       
         private void WriteMessageToGUIConsole(string msg)
         {
             ConsoleOutputRichTextBox.AppendText(msg);
@@ -558,6 +516,10 @@ namespace TCS
             endingPulseDurationDataLabel.Text = CurrentCue.EndingPulseDuration.ToString();
             startChangeAfterPulseNumberDataLabel.Text = CurrentCue.StartChangeAfterPulseNumber.ToString();
             endChangeAfterPulseNumberDataLabel.Text = CurrentCue.EndChangeAfterPulseNumber.ToString();
+            TactorNumDataLabel.Text = CurrentCue.TactorNum.ToString();
+            ISILengthDataLabel.Text = CurrentCue.ISILength.ToString();
+            TransientTypeDataLabel.Text = CurrentCue.TransientType;
+            TransientTimingDataLabel.Text = CurrentCue.TransientTiming;
         }
 
         private void selectCueNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -617,8 +579,22 @@ namespace TCS
         private void btnIntenseMatch_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            var Form2 = new Form2();
+            var Form2 = new Form2(ConnectedDeviceID, cuesList, NumberOfCues);
             Form2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime startTime = DateTime.Now;
+            activeAction = true;
+            Cue currentCue = cuesList[0];
+            int startPulseBreak = currentCue.StartingPulseDuration + currentCue.ISILength;
+            WriteMessageToGUIConsole("button click\n");
+            
+
+            Tdk.TdkInterface.Pulse(0, currentCue.StartingTactorLocation, currentCue.StartingPulseDuration, 0);
+            toggleOn(0, startPulseBreak); // ISI length variable
+            Tdk.TdkInterface.Pulse(0, 5, currentCue.StartingPulseDuration, 0);
         }
     }
 

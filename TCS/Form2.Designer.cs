@@ -56,6 +56,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBegin = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
@@ -453,12 +454,22 @@
             this.btnBegin.UseVisualStyleBackColor = false;
             this.btnBegin.Click += new System.EventHandler(this.btnBegin_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(736, 424);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 18);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "label9";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(874, 673);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnBegin);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -480,6 +491,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -513,5 +525,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnBegin;
+        private System.Windows.Forms.Label label9;
     }
 }

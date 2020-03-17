@@ -18,4 +18,11 @@ public class Cue
     public int StartChangeAfterPulseNumber;
     public int EndChangeAfterPulseNumber;
     public DateTime presentTime;
+
+    // cues variables
+    public int TactorNum; // number of tactor sites in stimulus: 2,3
+    public int ISILength; // ISI length: 0,400,900
+    public string TransientType; // transient type: None, Adjacent Mud, Opposite Mud
+    public string TransientTiming; // either 'Coincident' or 'Mid-ISI'
+
 }
